@@ -109,7 +109,15 @@
         .about-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
         .about-text { flex: 1; min-width: 300px; }
         .about-image { flex: 1; min-width: 300px; text-align: center; }
-        .about-image img { width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        /* Hier wird dein Bild gesteuert */
+        .about-image img { 
+            width: 100%; 
+            max-width: 350px; /* Bildgröße */
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+            object-fit: cover;
+        }
 
         .timeline-item { border-left: 3px solid var(--primary); padding-left: 20px; margin-bottom: 20px; }
         .timeline-date { color: var(--accent); font-weight: bold; font-size: 0.9rem; }
@@ -133,7 +141,7 @@
         /* Mobile Anpassung */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            nav { display: none; } /* Menü mobil ausblenden der Einfachheit halber */
+            nav { display: none; } 
             .mobile-contact { display: block; margin-top: 10px; }
         }
     </style>
@@ -202,7 +210,7 @@
         <h2 class="section-title">Über Al-Saleh IT</h2>
         <div class="about-container">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=600&q=80" alt="Mohammad Al-Saleh IT">
+                <img src="ich.jpg" alt="Mohammad Al-Saleh IT">
             </div>
             <div class="about-text">
                 <h3>Ihr Experte: Mohammad Al-Saleh</h3>
@@ -255,14 +263,14 @@
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
                 <br>
-                Peter-Gieser-Str. 10, 68723 Oftersheim
+                Peter-Gieser-Str. 20, 68723 Oftersheim
             </div>
         </div>
     </section>
 
     <footer>
         &copy; 2026 Al-Saleh IT Solutions. Alle Rechte vorbehalten.<br>
-        Inhaber: Mohammad Al-Saleh | Fachinformatiker Systemintegration
+        Inhaber: Mohammad Al-Saleh |  SystemintegraTOR
     </footer>
 
 </body>

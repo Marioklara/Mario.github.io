@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Al-Saleh IT Solutions | Ihr Partner in Oftersheim</title>
+    <title>Al-Saleh IT Solutions | Ihr Partner in Oftersheim</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
+            /* Hier habe ich das Rot durch ein schönes Dunkelblau ersetzt */
             --primary: #004e92;
             --secondary: #000428;
-            --accent: #e63946;
+            --accent: #0056b3; /* Früher Rot, jetzt kräftiges Blau */
             --light: #f8f9fa;
             --text: #334155;
             --whatsapp: #25d366;
@@ -22,6 +23,25 @@
             line-height: 1.6;
             scroll-behavior: smooth;
         }
+
+        /* --- Animationen (Springen & Wackeln) --- */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        @keyframes wobble {
+            0% { transform: rotate(0deg); }
+            15% { transform: rotate(-5deg) translateX(-2px); }
+            30% { transform: rotate(5deg) translateX(2px); }
+            45% { transform: rotate(-5deg) translateX(-2px); }
+            60% { transform: rotate(5deg) translateX(2px); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .jump-emoji { display: inline-block; animation: bounce 2s infinite; }
+        .work-emoji { display: inline-block; animation: wobble 2.5s infinite; }
 
         /* --- Header & Navigation --- */
         header {
@@ -61,7 +81,7 @@
 
         .btn {
             display: inline-block;
-            background-color: var(--accent);
+            background-color: var(--accent); /* Jetzt Blau */
             color: white;
             padding: 15px 35px;
             text-decoration: none;
@@ -70,9 +90,9 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4);
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); background-color: #d62828; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); background-color: #003d80; }
 
         /* --- Stats Section --- */
         .stats {
@@ -129,7 +149,7 @@
             border-radius: 10px;
             font-size: 1rem;
             transition: border-color 0.3s;
-            box-sizing: border-box; /* Wichtig damit Padding nicht die Breite sprengt */
+            box-sizing: border-box;
         }
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--primary);
@@ -165,7 +185,7 @@
         }
 
         .timeline-item { border-left: 3px solid var(--primary); padding-left: 20px; margin-bottom: 20px; }
-        .timeline-date { color: var(--accent); font-weight: bold; font-size: 0.9rem; }
+        .timeline-date { color: var(--accent); font-weight: bold; font-size: 0.9rem; } /* Datum jetzt Blau */
 
         /* --- Karriere --- */
         .career-box {
@@ -180,7 +200,10 @@
         /* --- Kontakt & Footer --- */
         .contact-info { text-align: center; font-size: 1.2rem; margin-top: 30px; }
         .contact-item { margin: 15px 0; }
-        .contact-link { color: var(--primary); text-decoration: none; font-weight: bold; }
+        
+        /* Der Link für Google Maps */
+        .contact-link { color: var(--primary); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        .contact-link:hover { color: #4facfe; text-decoration: underline; }
 
         footer { background-color: #1a1a1a; color: #aaa; text-align: center; padding: 40px 20px; margin-top: 50px; }
 
@@ -239,7 +262,7 @@
     </header>
 
     <div class="hero" id="home">
-        <h1>IT-Kompetenz aus Erfahrung 🚀</h1>
+        <h1><span class="jump-emoji">👋</span> Willkommen bei<br>Al-Saleh IT Solutions</h1>
         <p>Von der Netzwerk-Administration bis zur Sicherheitskamera. <br>Ihr zertifizierter Fachinformatiker in Oftersheim.</p>
         <a href="tel:015771292386" class="btn"><i class="fas fa-phone-alt"></i> Jetzt anrufen: 01577 129 23 86</a>
     </div>
@@ -260,7 +283,7 @@
     </div>
 
     <section id="services">
-        <h2 class="section-title">Unsere Dienstleistungen 🛠️</h2>
+        <h2 class="section-title">Unsere Dienstleistungen <span class="work-emoji">👨‍🔧</span></h2>
         <div class="grid">
             <div class="card">
                 <span class="icon"><i class="fas fa-server"></i></span>
@@ -343,44 +366,4 @@
                 <li>✅ Praktikanten im IT-Bereich</li>
                 <li>✅ Kooperationen mit anderen Freelancern</li>
             </ul>
-            <p>Senden Sie Ihre Initiative-Bewerbung gerne per E-Mail.</p>
-            <a href="mailto:alsalehmohammad126@gmail.com" class="btn" style="background: white; color: var(--primary);">📧 E-Mail senden</a>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">Kontaktieren Sie uns 📞</h2>
-        <div class="contact-info">
-            <p>Wir sind in Heidelberg & Oftersheim für Sie da.</p>
-            
-            <div class="contact-item">
-                <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
-                <br>
-                <a href="tel:015771292386" class="contact-link" style="font-size: 1.5rem;">01577 129 23 86</a>
-            </div>
-
-            <div class="contact-item">
-                <i class="fas fa-envelope fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
-                <br>
-                <a href="mailto:alsalehmohammad126@gmail.com" class="contact-link">alsalehmohammad126@gmail.com</a>
-            </div>
-
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
-                <br>
-                Heidelberger Straße 20, 68723 Oftersheim
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        &copy; 2026 Al-Saleh IT Solutions. Alle Rechte vorbehalten.<br>
-        Inhaber: Mohammad Al-Saleh | Fachinformatiker Systemintegration
-    </footer>
-
-    <a href="https://wa.me/4915771292386?text=Hallo%20Herr%20Al-Saleh,%20ich%20habe%20eine%20Anfrage." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-</body>
-</html>
+            <p>Senden Sie Ihre Initiative-Bewerbung gerne

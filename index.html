@@ -115,7 +115,7 @@
         .section-title { text-align: center; color: var(--secondary); font-size: 2.5rem; margin-bottom: 50px; }
         .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: var(--accent); margin: 15px auto; border-radius: 2px; }
 
-        /* --- Services --- */
+        /* --- Services Grid (Neue Nummerierung) --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
         .card {
@@ -126,9 +126,23 @@
             transition: transform 0.3s;
             border-top: 5px solid var(--primary);
             text-align: center;
+            position: relative; /* Für die Nummerierung */
+            overflow: hidden;
         }
         .card:hover { transform: translateY(-10px); }
         .icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; display: block; }
+
+        /* Die Nummern im Hintergrund (01, 02, 03) */
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 5rem;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.05);
+            z-index: 0;
+        }
+        .card h3, .card p, .card span { position: relative; z-index: 1; }
 
         /* --- Formular & Termin --- */
         .contact-form-box {
@@ -277,21 +291,28 @@
     <section id="services">
         <h2 class="section-title">Unsere Dienstleistungen <span class="work-emoji">👨‍🔧</span></h2>
         <div class="grid">
+            
             <div class="card">
-                <span class="icon"><i class="fas fa-building"></i></span>
-                <h3>Firmen-Kooperationen 🤝</h3>
-                <p>Wir übernehmen die komplette IT-Betreuung für Ihre Firma. Faire Wartungsverträge für Ihr Netzwerk, Server und PCs.</p>
-            </div>
-            <div class="card">
-                <span class="icon"><i class="fas fa-shield-alt"></i></span>
-                <h3>Sicherheitstechnik 🛡️</h3>
-                <p>Installation von Alarm-Systemen und Kameras. Schutz für Ihr Unternehmen und Zuhause mit App-Zugriff.</p>
-            </div>
-            <div class="card">
+                <div class="step-number">01</div>
                 <span class="icon"><i class="fas fa-server"></i></span>
-                <h3>Systemintegration 💻</h3>
-                <p>Einrichtung von Windows Servern (2019/2022), Active Directory und Cloud-Lösungen. Profi-Wissen vom Fachinformatiker.</p>
+                <h3>IT-Infrastruktur Aufbau</h3>
+                <p>Wir bauen die komplette Infrastruktur für Ihre Firma auf. Von der Installation der Windows Server bis zur Vernetzung aller Arbeitsplätze.</p>
             </div>
+
+            <div class="card">
+                <div class="step-number">02</div>
+                <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                <h3>Kamera & Sicherheit</h3>
+                <p>Installation von Alarm-Systemen und modernen Kameras. Schützen Sie Ihr Gebäude und greifen Sie bequem per App darauf zu.</p>
+            </div>
+
+            <div class="card">
+                <div class="step-number">03</div>
+                <span class="icon"><i class="fas fa-handshake"></i></span>
+                <h3>Wartung & Support</h3>
+                <p>Kooperationen für Firmen: Wir bieten Wartungsverträge, kümmern uns um Updates und helfen sofort bei PC-Problemen.</p>
+            </div>
+
         </div>
     </section>
 
@@ -316,7 +337,7 @@
                 <div class="form-group">
                     <label for="topic">💡 Worum geht es?</label>
                     <select id="topic" name="Thema">
-                        <option value="Netzwerk-Betreuung (Firmen)">🏢 Netzwerk-Betreuung (Für Firmen)</option>
+                        <option value="Infrastruktur Aufbau">🏢 Infrastruktur & Server Aufbau</option>
                         <option value="Wartungsvertrag">🤝 Anfrage Kooperation / Wartungsvertrag</option>
                         <option value="Kamera & Sicherheit">📹 Kamera & Sicherheitstechnik</option>
                         <option value="PC-Reparatur">🔧 PC-Reparatur / Notfall</option>

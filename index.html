@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Saleh IT Solutions | Ihr Partner in Oftersheim</title>
+    <title>Al-Saleh IT Solutions | Ihr IT-Partner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Dein gewünschtes Dunkelblau statt Rot */
+            /* Professionelles Dunkelblau */
             --primary: #004e92;
             --secondary: #000428;
             --accent: #0056b3; 
@@ -130,7 +130,7 @@
         .card:hover { transform: translateY(-10px); }
         .icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; display: block; }
 
-        /* --- Formular --- */
+        /* --- Formular & Termin --- */
         .contact-form-box {
             background: white;
             padding: 40px;
@@ -142,7 +142,9 @@
         }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--secondary); }
-        .form-group input, .form-group textarea {
+        
+        /* Input Styling auch für Select, Date und Time */
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 12px;
             border: 2px solid #eee;
@@ -150,8 +152,13 @@
             font-size: 1rem;
             transition: border-color 0.3s;
             box-sizing: border-box;
+            font-family: inherit;
         }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); outline: none; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { 
+            border-color: var(--primary); 
+            outline: none; 
+        }
+        
         .submit-btn {
             width: 100%;
             background-color: var(--primary);
@@ -179,9 +186,6 @@
             object-fit: cover;
             border: 5px solid white;
         }
-
-        .timeline-item { border-left: 3px solid var(--primary); padding-left: 20px; margin-bottom: 20px; }
-        .timeline-date { color: var(--accent); font-weight: bold; font-size: 0.9rem; }
 
         /* --- Karriere --- */
         .career-box {
@@ -214,18 +218,14 @@
             text-align: center;
             font-size: 32px;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 9999; /* WICHTIG: Damit er immer oben ist */
+            z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
             text-decoration: none;
         }
-
-        .whatsapp-float:hover {
-            background-color: #128c7e;
-            transform: scale(1.1) rotate(10deg);
-        }
+        .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1) rotate(10deg); }
 
         /* Mobile */
         @media (max-width: 768px) {
@@ -245,7 +245,7 @@
                 <li><a href="#home">🏠 Start</a></li>
                 <li><a href="#services">🛠️ Leistungen</a></li>
                 <li><a href="#about">👨‍💻 Über uns</a></li>
-                <li><a href="#anfrage">📩 Anfrage</a></li>
+                <li><a href="#termin">📅 Termin</a></li>
                 <li><a href="#contact">📞 Kontakt</a></li>
             </ul>
         </nav>
@@ -256,18 +256,18 @@
 
     <div class="hero" id="home">
         <h1><span class="jump-emoji">👋</span> Willkommen bei<br>Al-Saleh IT Solutions</h1>
-        <p>Von der Netzwerk-Administration bis zur Sicherheitskamera. <br>Ihr zertifizierter Fachinformatiker in Oftersheim.</p>
-        <a href="tel:015771292386" class="btn"><i class="fas fa-phone-alt"></i> Jetzt anrufen: 01577 129 23 86</a>
+        <p>Professionelle IT-Netzwerkbetreuung und Sicherheitslösungen für Firmen und Privatkunden.</p>
+        <a href="#termin" class="btn"><i class="fas fa-calendar-check"></i> Termin vereinbaren</a>
     </div>
 
     <div class="stats">
         <div class="stat-item">
             <h3>5+ 📅</h3>
-            <p>Jahre Erfahrung</p>
+            <p>Jahre IT-Erfahrung</p>
         </div>
         <div class="stat-item">
             <h3>100% ⭐</h3>
-            <p>Zuverlässigkeit</p>
+            <p>Kundenzufriedenheit</p>
         </div>
         <div class="stat-item">
             <h3>24/7 🚑</h3>
@@ -279,50 +279,67 @@
         <h2 class="section-title">Unsere Dienstleistungen <span class="work-emoji">👨‍🔧</span></h2>
         <div class="grid">
             <div class="card">
-                <span class="icon"><i class="fas fa-server"></i></span>
-                <h3>Systemintegration 💻</h3>
-                <p>Einrichtung von Windows Servern (2019/2022), Active Directory und Netzwerken. Profi-Wissen durch IHK-Zertifizierung.</p>
+                <span class="icon"><i class="fas fa-building"></i></span>
+                <h3>Firmen-Kooperationen 🤝</h3>
+                <p>Wir übernehmen die komplette IT-Betreuung für Ihre Firma. Faire Wartungsverträge für Ihr Netzwerk, Server und PCs.</p>
             </div>
             <div class="card">
                 <span class="icon"><i class="fas fa-shield-alt"></i></span>
                 <h3>Sicherheitstechnik 🛡️</h3>
-                <p>Installation von Alarm-Systemen und Überwachungskameras. Zugriff direkt über Ihr Smartphone – jederzeit sicher fühlen.</p>
+                <p>Installation von Alarm-Systemen und Kameras. Schutz für Ihr Unternehmen und Zuhause mit App-Zugriff.</p>
             </div>
             <div class="card">
-                <span class="icon"><i class="fas fa-laptop-medical"></i></span>
-                <h3>Hardware & Support 🔧</h3>
-                <p>Reparatur, Aufrüstung und Installation von PCs. Hilfe bei Software-Problemen (Office, Windows 10/11).</p>
+                <span class="icon"><i class="fas fa-server"></i></span>
+                <h3>Systemintegration 💻</h3>
+                <p>Einrichtung von Windows Servern (2019/2022), Active Directory und Cloud-Lösungen. Profi-Wissen vom Fachinformatiker.</p>
             </div>
         </div>
     </section>
 
-    <section id="anfrage" style="background-color: var(--light);">
-        <h2 class="section-title">📩 Kostenlose Anfrage senden</h2>
+    <section id="termin" style="background-color: var(--light);">
+        <h2 class="section-title">📅 Rückruf & Termin vereinbaren</h2>
         <div class="contact-form-box">
             <p style="text-align: center; margin-bottom: 30px;">
-                Hinterlassen Sie Ihre Kontaktdaten. Ich melde mich umgehend bei Ihnen!
+                Wählen Sie Ihr Wunsch-Thema und einen Termin. Wir rufen Sie pünktlich an!
             </p>
             
-            <form action="mailto:alsalehmohammad126@gmail.com" method="post" enctype="text/plain">
+            <form action="mailto:alsalehmohammad126@gmail.com?subject=Rückruf Termin Anfrage" method="post" enctype="text/plain">
                 <div class="form-group">
-                    <label for="name">👤 Ihr Name:</label>
-                    <input type="text" id="name" name="Name" placeholder="z.B. Max Mustermann" required>
+                    <label for="name">👤 Ihr Name / Firma:</label>
+                    <input type="text" id="name" name="Name" placeholder="z.B. Max Mustermann GmbH" required>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">📱 Ihre Telefonnummer:</label>
-                    <input type="tel" id="phone" name="Telefon" placeholder="Für Rückruf..." required>
+                    <input type="tel" id="phone" name="Telefon" placeholder="Unter welcher Nummer sollen wir anrufen?" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">📝 Ihre Nachricht:</label>
-                    <textarea id="message" name="Nachricht" rows="4" placeholder="Wie kann ich Ihnen helfen? (z.B. Webseiten-Erstellung)"></textarea>
+                    <label for="topic">💡 Worum geht es?</label>
+                    <select id="topic" name="Thema">
+                        <option value="Netzwerk-Betreuung (Firmen)">🏢 Netzwerk-Betreuung (Für Firmen)</option>
+                        <option value="Wartungsvertrag">🤝 Anfrage Kooperation / Wartungsvertrag</option>
+                        <option value="Kamera & Sicherheit">📹 Kamera & Sicherheitstechnik</option>
+                        <option value="PC-Reparatur">🔧 PC-Reparatur / Notfall</option>
+                        <option value="Sonstiges">❓ Sonstige Beratung</option>
+                    </select>
                 </div>
 
-                <button type="submit" class="submit-btn">🚀 Jetzt Nachricht absenden</button>
+                <div class="form-group" style="display: flex; gap: 20px;">
+                    <div style="flex: 1;">
+                        <label for="date">📅 Wunsch-Datum:</label>
+                        <input type="date" id="date" name="Datum" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="time">⏰ Wunsch-Uhrzeit:</label>
+                        <input type="time" id="time" name="Uhrzeit" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">✅ Termin anfragen</button>
             </form>
             <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 10px;">
-                *Mit dem Klick auf "Absenden" öffnet sich Ihr E-Mail-Programm.
+                *Mit dem Klick auf "Termin anfragen" öffnet sich Ihr E-Mail-Programm.
             </p>
         </div>
     </section>
@@ -334,18 +351,15 @@
                 <img src="ich.jpg" alt="Mohammad Al-Saleh IT">
             </div>
             <div class="about-text">
-                <h3>Ihr Experte: Mohammad Al-Saleh</h3>
-                <p>Nach meinem erfolgreichen Abschluss als <strong>Fachinformatiker für Systemintegration (IHK)</strong> in Heidelberg habe ich Al-Saleh IT Solutions gegründet.</p>
-                <p>Ich stehe für Zuverlässigkeit, Teamfähigkeit und ständige Weiterbildung in neuen Technologien wie Cloud (AWS) und Virtualisierung.</p>
+                <h3>Ihr starker Partner für IT & Netzwerke</h3>
+                <p><strong>Gegründet am 20.01.2026</strong> in Oftersheim.</p>
+                <p>Al-Saleh IT Solutions steht für moderne Dienstleistung und faire Partnerschaften. Wir sind ein junges, dynamisches Unternehmen mit einem klaren Ziel: <strong>Ihre IT muss einfach funktionieren.</strong></p>
                 
-                <h4 style="margin-top: 30px;">🎓 Mein Werdegang:</h4>
-                <div class="timeline-item">
-                    <div class="timeline-date">Ausbildung</div>
-                    <strong>Fachinformatiker Systemintegration (GFN Heidelberg)</strong><br>Erfolgreich abgeschlossen (IHK).
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Praxiserfahrung</div>
-                    <strong>Deutsche Rentenversicherung & Bechtle</strong><br>Unterstützung bei der Digitalisierung und Rollout-Projekten.
+                <p>Wir bieten Firmen maßgeschneiderte Kooperationen an. Überlassen Sie uns die Pflege Ihres Netzwerks, damit Sie sich auf Ihr Geschäft konzentrieren können.</p>
+
+                <div style="background: #eef7ff; padding: 20px; border-left: 5px solid var(--primary); margin-top: 20px; border-radius: 5px;">
+                    <strong>Der Inhaber: Mohammad Al-Saleh</strong><br>
+                    Auch wenn die Firma neu gegründet ist, profitieren Sie von meiner jahrelangen Erfahrung in komplexen IT-Projekten. Als Fachinformatiker habe ich bereits Großprojekte bei namhaften Unternehmen (wie Bechtle & Deutsche Rentenversicherung) begleitet. Diese Expertise bringe ich nun direkt zu Ihnen.
                 </div>
             </div>
         </div>
@@ -353,19 +367,18 @@
 
     <section id="career">
         <div class="career-box">
-            <h2 style="margin-top:0;">Karriere bei uns 📈</h2>
-            <p>Wir wachsen! Aktuell suchen wir zwar keine festen Mitarbeiter, aber wir sind immer offen für:</p>
+            <h2 style="margin-top:0;">Karriere & Partner 📈</h2>
+            <p>Wir wachsen! Suchen Sie einen zuverlässigen Subunternehmer oder Partner für IT-Projekte?</p>
             <ul style="list-style: none; padding:0; margin: 20px 0;">
-                <li>✅ Praktikanten im IT-Bereich</li>
-                <li>✅ Kooperationen mit anderen Freelancern</li>
+                <li>✅ Offen für Kooperationen mit anderen IT-Häusern</li>
+                <li>✅ Praktikanten im IT-Bereich willkommen</li>
             </ul>
-            <p>Senden Sie Ihre Initiative-Bewerbung gerne per E-Mail.</p>
-            <a href="mailto:alsalehmohammad126@gmail.com" class="btn" style="background: white; color: var(--primary);">📧 E-Mail senden</a>
+            <a href="mailto:alsalehmohammad126@gmail.com" class="btn" style="background: white; color: var(--primary);">📧 Partnerschaft anfragen</a>
         </div>
     </section>
 
     <section id="contact">
-        <h2 class="section-title">Kontaktieren Sie uns 📞</h2>
+        <h2 class="section-title">Kontakt & Anfahrt 📞</h2>
         <div class="contact-info">
             <p>Wir sind in Heidelberg & Oftersheim für Sie da.</p>
             
@@ -397,7 +410,7 @@
         Inhaber: Mohammad Al-Saleh | Fachinformatiker Systemintegration
     </footer>
 
-    <a href="https://wa.me/4915771292386?text=Hallo%20Herr%20Al-Saleh,%20ich%20habe%20eine%20Anfrage." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/4915771292386?text=Hallo%20Herr%20Al-Saleh,%20ich%20habe%20Interesse%20an%20einer%20Zusammenarbeit." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 

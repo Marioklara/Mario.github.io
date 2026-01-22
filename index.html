@@ -66,49 +66,69 @@
 
         .mobile-contact { display: none; }
 
-        /* --- Hero Section mit Video --- */
+        /* --- Hero (Mit Video & Weißer Box) --- */
         .hero {
             position: relative;
-            padding: 160px 20px; /* Etwas mehr Platz für das Video */
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: white;
-            overflow: hidden; /* Wichtig, damit das Video nicht rausragt */
+            overflow: hidden;
+            background: #000428; 
         }
 
-        /* Das Hintergrund-Video */
+        /* Das Video im Hintergrund */
         .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -2; /* Ganz nach hinten */
-            transform: translateX(-50%) translateY(-50%);
-            object-fit: cover;
-        }
-
-        /* Der blaue Filter über dem Video */
-        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Dunkelblauer, transparenter Filter für bessere Lesbarkeit */
-            background: linear-gradient(rgba(0, 4, 40, 0.7), rgba(0, 78, 146, 0.6));
-            z-index: -1; /* Hinter den Text, aber vor das Video */
+            object-fit: cover;
+            z-index: 0;
         }
 
-        /* Der eigentliche Inhalt (Text & Button) */
+        /* Das Bild (Fallback, falls Video lädt) */
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- HIER IST DIE WEISSE BOX MIT DUNKELBLAUER SCHRIFT --- */
         .hero-content {
             position: relative;
-            z-index: 1; /* Ganz nach vorne */
+            z-index: 1;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.90); /* Weiß, leicht durchsichtig */
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            max-width: 800px;
+            margin: 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
-        .hero p { font-size: 1.4rem; max-width: 800px; margin: 0 auto 40px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 20px; 
+            color: var(--secondary); /* Dunkelblau */
+            text-shadow: none;
+        }
+        .hero p { 
+            font-size: 1.4rem; 
+            max-width: 800px; 
+            margin: 0 auto 40px; 
+            color: var(--text); /* Dunkelgrau/Blau */
+            text-shadow: none;
+            font-weight: 500;
+        }
 
         .btn {
             display: inline-block;
@@ -163,7 +183,6 @@
         .card:hover { transform: translateY(-10px); }
         .icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; display: block; }
 
-        /* Nummern Hintergrund */
         .step-number {
             position: absolute;
             top: -10px;
@@ -273,7 +292,7 @@
 
         /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             nav { display: none; } 
             .mobile-contact { display: block; margin-top: 10px; }
             .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 28px; }
@@ -299,12 +318,12 @@
     </header>
 
     <div class="hero" id="home">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="https://assets.codepen.io/6093409/server-room.mp4" type="video/mp4">
-            Ihr Browser unterstützt leider kein HTML5 Video.
+        
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="Server_Room_Video_Generation.mp4" type="video/mp4">
         </video>
         
-        <div class="hero-overlay"></div>
+        <div class="hero-bg-image"></div>
 
         <div class="hero-content">
             <h1><span class="jump-emoji">👋</span> Willkommen bei<br>Al-Saleh IT Solutions</h1>
@@ -413,9 +432,7 @@
             <div class="about-text">
                 <h3>Ihr starkes Team für IT & Netzwerke</h3>
                 <p>Al-Saleh IT Solutions steht für moderne Dienstleistung und faire Partnerschaften. Wir sind ein schnell wachsendes Unternehmen mit einem klaren Ziel: <strong>Ihre IT muss einfach funktionieren.</strong></p>
-                
                 <p><strong>Unser Team besteht mittlerweile aus 12 qualifizierten Mitarbeitern</strong>, die sich täglich um die Netzwerke unserer Kunden kümmern. Wir wachsen stetig weiter, um Ihnen den besten Service in der Region Oftersheim und Umgebung zu bieten.</p>
-
                 <div style="background: #eef7ff; padding: 20px; border-left: 5px solid var(--primary); margin-top: 20px; border-radius: 5px;">
                     <strong>Der Gründer: Mohammad Al-Saleh</strong><br>
                     Mit Erfahrung aus Großprojekten (Bechtle, Deutsche Rentenversicherung) leite ich unser Team aus Experten. Wir bieten Firmen maßgeschneiderte Kooperationen und sorgen dafür, dass Sie sich voll auf Ihr Geschäft konzentrieren können.
@@ -440,19 +457,16 @@
         <h2 class="section-title">Kontakt & Anfahrt 📞</h2>
         <div class="contact-info">
             <p>Wir sind in Heidelberg & Oftersheim für Sie da.</p>
-            
             <div class="contact-item">
                 <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
                 <br>
                 <a href="tel:015771292386" class="contact-link" style="font-size: 1.5rem;">01577 129 23 86</a>
             </div>
-
             <div class="contact-item">
                 <i class="fas fa-envelope fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
                 <br>
                 <a href="mailto:alsalehmohammad126@gmail.com" class="contact-link">alsalehmohammad126@gmail.com</a>
             </div>
-
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
                 <br>

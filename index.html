@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Professionelles Corporate Design */
             --primary: #004e92;
             --secondary: #000428;
             --accent: #0056b3; 
@@ -31,17 +30,7 @@
             60% {transform: translateY(-10px);}
         }
         
-        @keyframes wobble {
-            0% { transform: rotate(0deg); }
-            15% { transform: rotate(-5deg) translateX(-2px); }
-            30% { transform: rotate(5deg) translateX(2px); }
-            45% { transform: rotate(-5deg) translateX(-2px); }
-            60% { transform: rotate(5deg) translateX(2px); }
-            100% { transform: rotate(0deg); }
-        }
-
         .jump-emoji { display: inline-block; animation: bounce 2s infinite; }
-        .work-emoji { display: inline-block; animation: wobble 2.5s infinite; }
 
         /* --- Header --- */
         header {
@@ -62,11 +51,9 @@
 
         nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
         nav a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: #4facfe; transform: scale(1.1); display: inline-block; }
+        nav a:hover { color: #4facfe; }
 
-        .mobile-contact { display: none; }
-
-        /* --- Hero (Mit Video & Weißer Box) --- */
+        /* --- Hero Bereich --- */
         .hero {
             position: relative;
             height: 80vh;
@@ -78,7 +65,6 @@
             background: #000428; 
         }
 
-        /* Das Video im Hintergrund */
         .hero-video {
             position: absolute;
             top: 0;
@@ -86,10 +72,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 1; /* Video liegt über dem Bild */
+            z-index: 1;
         }
 
-        /* Das Bild (Fallback) - Liegt ganz hinten */
         .hero-bg-image {
             position: absolute;
             top: 0;
@@ -99,14 +84,11 @@
             object-fit: cover;
             z-index: 0;
             background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
         }
 
-        /* --- WEISSE BOX MIT TEXT --- */
         .hero-content {
             position: relative;
-            z-index: 2; /* Liegt ganz oben über dem Video */
+            z-index: 2;
             padding: 40px;
             background: rgba(255, 255, 255, 0.90);
             border-radius: 20px;
@@ -115,20 +97,8 @@
             margin: 20px;
         }
 
-        .hero h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 20px; 
-            color: var(--secondary); 
-            text-shadow: none;
-        }
-        .hero p { 
-            font-size: 1.4rem; 
-            max-width: 800px; 
-            margin: 0 auto 40px; 
-            color: var(--text); 
-            text-shadow: none;
-            font-weight: 500;
-        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--secondary); }
+        .hero p { font-size: 1.4rem; color: var(--text); font-weight: 500; }
 
         .btn {
             display: inline-block;
@@ -138,12 +108,10 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
+            transition: transform 0.3s;
             box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4);
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); background-color: #003d80; }
+        .btn:hover { transform: translateY(-3px); }
 
         /* --- Stats --- */
         .stats {
@@ -159,29 +127,21 @@
             z-index: 10;
         }
         .stat-item h3 { font-size: 2.5rem; color: var(--primary); margin: 0; }
-        .stat-item p { margin: 0; font-weight: bold; color: #666; }
 
-        /* --- Sections --- */
+        /* --- Leistungen --- */
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; color: var(--secondary); font-size: 2.5rem; margin-bottom: 50px; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: var(--accent); margin: 15px auto; border-radius: 2px; }
-
-        /* --- Services Grid --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card {
             background: white;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
             border-top: 5px solid var(--primary);
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
-        .card:hover { transform: translateY(-10px); }
-        .icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; display: block; }
 
         .step-number {
             position: absolute;
@@ -190,9 +150,7 @@
             font-size: 5rem;
             font-weight: bold;
             color: rgba(0, 0, 0, 0.05);
-            z-index: 0;
         }
-        .card h3, .card p, .card span { position: relative; z-index: 1; }
 
         /* --- Formular --- */
         .contact-form-box {
@@ -202,26 +160,15 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             max-width: 700px;
             margin: 0 auto;
-            border: 1px solid #eee;
         }
         .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--secondary); }
-        
-        .form-group input, .form-group textarea, .form-group select {
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .form-group input, .form-group select {
             width: 100%;
             padding: 12px;
             border: 2px solid #eee;
             border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            box-sizing: border-box;
-            font-family: inherit;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { 
-            border-color: var(--primary); 
-            outline: none; 
-        }
-        
         .submit-btn {
             width: 100%;
             background-color: var(--primary);
@@ -229,26 +176,14 @@
             padding: 15px;
             border: none;
             border-radius: 10px;
-            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
         }
-        .submit-btn:hover { background-color: var(--secondary); }
 
-        /* --- Über uns --- */
+        /* --- Über Uns --- */
         .about-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
         .about-text { flex: 1; min-width: 300px; }
-        .about-image { flex: 1; min-width: 300px; text-align: center; }
-        
-        .about-image img { 
-            width: 100%; 
-            max-width: 350px; 
-            border-radius: 20px; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25); 
-            object-fit: cover;
-            border: 5px solid white;
-        }
+        .about-image img { width: 100%; max-width: 350px; border-radius: 20px; }
 
         /* --- Karriere --- */
         .career-box {
@@ -257,18 +192,13 @@
             padding: 50px;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        /* --- Footer & Kontakt --- */
-        .contact-info { text-align: center; font-size: 1.2rem; margin-top: 30px; }
-        .contact-item { margin: 15px 0; }
-        .contact-link { color: var(--primary); text-decoration: none; font-weight: bold; transition: color 0.3s; }
-        .contact-link:hover { color: #4facfe; text-decoration: underline; }
-
+        /* --- Kontakt & Footer --- */
+        .contact-info { text-align: center; font-size: 1.2rem; }
+        .contact-link { color: var(--primary); text-decoration: none; font-weight: bold; }
         footer { background-color: #1a1a1a; color: #aaa; text-align: center; padding: 40px 20px; margin-top: 50px; }
 
-        /* --- WHATSAPP BUTTON --- */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -276,26 +206,18 @@
             bottom: 30px;
             right: 30px;
             background-color: var(--whatsapp);
-            color: #FFF;
+            color: white;
             border-radius: 50px;
-            text-align: center;
-            font-size: 32px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            font-size: 32px;
+            z-index: 9999;
             text-decoration: none;
         }
-        .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1) rotate(10deg); }
 
-        /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav { display: none; } 
-            .mobile-contact { display: block; margin-top: 10px; }
-            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 28px; }
+            nav { display: none; }
         }
     </style>
 </head>
@@ -312,19 +234,13 @@
                 <li><a href="#contact">📞 Kontakt</a></li>
             </ul>
         </nav>
-        <div class="mobile-contact">
-            <a href="tel:015771292386" class="btn" style="padding: 5px 15px; font-size: 0.8rem;">📞 Anrufen</a>
-        </div>
     </header>
 
     <div class="hero" id="home">
-        
         <div class="hero-bg-image"></div>
-
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="Server_Room_Video_Generation.mp4" type="video/mp4">
         </video>
-        
         <div class="hero-content">
             <h1><span class="jump-emoji">👋</span> Willkommen bei<br>Al-Saleh IT Solutions</h1>
             <p>Ihr starker Partner für IT-Netzwerke, Sicherheitstechnik und Firmenbetreuung in Oftersheim.</p>
@@ -333,109 +249,70 @@
     </div>
 
     <div class="stats">
-        <div class="stat-item">
-            <h3>12 👥</h3>
-            <p>Mitarbeiter</p>
-        </div>
-        <div class="stat-item">
-            <h3>100% ⭐</h3>
-            <p>Kundenzufriedenheit</p>
-        </div>
-        <div class="stat-item">
-            <h3>24/7 🚑</h3>
-            <p>Notfall-Support</p>
-        </div>
+        <div class="stat-item"><h3>12 👥</h3><p>Mitarbeiter</p></div>
+        <div class="stat-item"><h3>100% ⭐</h3><p>Kundenzufriedenheit</p></div>
+        <div class="stat-item"><h3>24/7 🚑</h3><p>Notfall-Support</p></div>
     </div>
 
     <section id="services">
-        <h2 class="section-title">Unsere Dienstleistungen <span class="work-emoji">👨‍🔧</span></h2>
+        <h2 class="section-title">Unsere Dienstleistungen 👨‍🔧</h2>
         <div class="grid">
-            
             <div class="card">
                 <div class="step-number">01</div>
-                <span class="icon"><i class="fas fa-server"></i></span>
+                <i class="fas fa-server fa-3x" style="color:var(--primary)"></i>
                 <h3>IT-Infrastruktur Aufbau</h3>
-                <p>Wir bauen die komplette Infrastruktur für Ihre Firma auf. Von der Installation der Windows Server bis zur Vernetzung aller Arbeitsplätze.</p>
+                <p>Wir bauen die komplette Infrastruktur für Ihre Firma auf. Von Windows Servern bis zur Vernetzung.</p>
             </div>
-
             <div class="card">
                 <div class="step-number">02</div>
-                <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                <i class="fas fa-shield-alt fa-3x" style="color:var(--primary)"></i>
                 <h3>Kamera & Sicherheit</h3>
-                <p>Installation von Alarm-Systemen und modernen Kameras. Schützen Sie Ihr Gebäude und greifen Sie bequem per App darauf zu.</p>
+                <p>Installation von Alarm-Systemen und modernen Kameras mit App-Zugriff.</p>
             </div>
-
             <div class="card">
                 <div class="step-number">03</div>
-                <span class="icon"><i class="fas fa-handshake"></i></span>
+                <i class="fas fa-handshake fa-3x" style="color:var(--primary)"></i>
                 <h3>Wartung & Support</h3>
-                <p>Kooperationen für Firmen: Wir bieten Wartungsverträge, kümmern uns um Updates und helfen sofort bei PC-Problemen.</p>
+                <p>Kooperationen für Firmen: Wartungsverträge und schneller Support bei PC-Problemen.</p>
             </div>
-
         </div>
     </section>
 
     <section id="termin" style="background-color: var(--light);">
         <h2 class="section-title">📅 Rückruf & Termin vereinbaren</h2>
         <div class="contact-form-box">
-            <p style="text-align: center; margin-bottom: 30px;">
-                Wählen Sie Ihr Wunsch-Thema und einen Termin. Wir rufen Sie pünktlich an!
-            </p>
-            
-            <form action="mailto:alsalehmohammad126@gmail.com?subject=Rückruf Termin Anfrage" method="post" enctype="text/plain">
+            <form action="mailto:info@it-alsaleh.de?subject=Anfrage über Webseite" method="post" enctype="text/plain">
                 <div class="form-group">
-                    <label for="name">👤 Ihr Name / Firma:</label>
-                    <input type="text" id="name" name="Name" placeholder="z.B. Max Mustermann GmbH" required>
+                    <label>👤 Ihr Name / Firma:</label>
+                    <input type="text" name="Name" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="phone">📱 Ihre Telefonnummer:</label>
-                    <input type="tel" id="phone" name="Telefon" placeholder="Unter welcher Nummer sollen wir anrufen?" required>
+                    <label>📱 Ihre Telefonnummer:</label>
+                    <input type="tel" name="Telefon" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="topic">💡 Worum geht es?</label>
-                    <select id="topic" name="Thema">
-                        <option value="Infrastruktur Aufbau">🏢 Infrastruktur & Server Aufbau</option>
-                        <option value="Wartungsvertrag">🤝 Anfrage Kooperation / Wartungsvertrag</option>
-                        <option value="Kamera & Sicherheit">📹 Kamera & Sicherheitstechnik</option>
-                        <option value="PC-Reparatur">🔧 PC-Reparatur / Notfall</option>
-                        <option value="Sonstiges">❓ Sonstige Beratung</option>
+                    <label>💡 Thema:</label>
+                    <select name="Thema">
+                        <option>IT-Infrastruktur</option>
+                        <option>Wartungsvertrag</option>
+                        <option>Sicherheitstechnik</option>
+                        <option>Sonstiges</option>
                     </select>
                 </div>
-
-                <div class="form-group" style="display: flex; gap: 20px;">
-                    <div style="flex: 1;">
-                        <label for="date">📅 Wunsch-Datum:</label>
-                        <input type="date" id="date" name="Datum" required>
-                    </div>
-                    <div style="flex: 1;">
-                        <label for="time">⏰ Wunsch-Uhrzeit:</label>
-                        <input type="time" id="time" name="Uhrzeit" required>
-                    </div>
-                </div>
-
                 <button type="submit" class="submit-btn">✅ Termin anfragen</button>
             </form>
-            <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 10px;">
-                *Mit dem Klick auf "Termin anfragen" öffnet sich Ihr E-Mail-Programm.
-            </p>
         </div>
     </section>
 
     <section id="about">
         <h2 class="section-title">Über Al-Saleh IT 👨‍💻</h2>
         <div class="about-container">
-            <div class="about-image">
-                <img src="ich.jpg" alt="Mohammad Al-Saleh IT">
-            </div>
             <div class="about-text">
                 <h3>Ihr starkes Team für IT & Netzwerke</h3>
-                <p>Al-Saleh IT Solutions steht für moderne Dienstleistung und faire Partnerschaften. Wir sind ein schnell wachsendes Unternehmen mit einem klaren Ziel: <strong>Ihre IT muss einfach funktionieren.</strong></p>
-                <p><strong>Unser Team besteht mittlerweile aus 12 qualifizierten Mitarbeitern</strong>, die sich täglich um die Netzwerke unserer Kunden kümmern. Wir wachsen stetig weiter, um Ihnen den besten Service in der Region Oftersheim und Umgebung zu bieten.</p>
-                <div style="background: #eef7ff; padding: 20px; border-left: 5px solid var(--primary); margin-top: 20px; border-radius: 5px;">
-                    <strong>Der Gründer: Mohammad Al-Saleh</strong><br>
-                    Mit Erfahrung aus Großprojekten (Bechtle, Deutsche Rentenversicherung) leite ich unser Team aus Experten. Wir bieten Firmen maßgeschneiderte Kooperationen und sorgen dafür, dass Sie sich voll auf Ihr Geschäft konzentrieren können.
+                <p>Wir sind ein Team von 12 Experten, geführt von Mohammad Al-Saleh.</p>
+                <div style="background: #eef7ff; padding: 20px; border-left: 5px solid var(--primary);">
+                    <strong>Inhaber: Mohammad Al-Saleh</strong><br>
+                    Erfahrung aus Projekten bei Bechtle und der DRV.
                 </div>
             </div>
         </div>
@@ -443,49 +320,27 @@
 
     <section id="career">
         <div class="career-box">
-            <h2 style="margin-top:0;">Karriere & Wachstum 📈</h2>
-            <p>Wir wachsen weiter! Sind Sie bereit, Teil unseres 12-köpfigen Teams zu werden?</p>
-            <ul style="list-style: none; padding:0; margin: 20px 0;">
-                <li>✅ Offen für Kooperationen mit Subunternehmern</li>
-                <li>✅ Praktikanten & IT-Talente willkommen</li>
-            </ul>
-            <a href="mailto:alsalehmohammad126@gmail.com" class="btn" style="background: white; color: var(--primary);">📧 Jetzt bewerben</a>
+            <h2>Karriere & Wachstum 📈</h2>
+            <p>Teil des 12-köpfigen Teams werden?</p>
+            <a href="mailto:info@it-alsaleh.de" class="btn" style="background:white; color:var(--primary)">📧 Jetzt bewerben</a>
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title">Kontakt & Anfahrt 📞</h2>
         <div class="contact-info">
-            <p>Wir sind in Heidelberg & Oftersheim für Sie da.</p>
-            <div class="contact-item">
-                <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
-                <br>
-                <a href="tel:015771292386" class="contact-link" style="font-size: 1.5rem;">01577 129 23 86</a>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
-                <br>
-                <a href="mailto:alsalehmohammad126@gmail.com" class="contact-link">alsalehmohammad126@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt fa-2x" style="vertical-align: middle; color: var(--primary);"></i>
-                <br>
-                <a href="https://www.google.com/maps/search/?api=1&query=Gewerbepark+Hardtwald+20,+68723+Oftersheim" target="_blank" class="contact-link">
-                    Gewerbepark Hardtwald 20, 68723 Oftersheim
-                </a>
-            </div>
+            <p><a href="tel:015771292386" class="contact-link">📞 01577 129 23 86</a></p>
+            <p><a href="mailto:info@it-alsaleh.de" class="contact-link">📧 info@it-alsaleh.de</a></p>
+            <p><a href="https://www.google.com/maps/search/?api=1&query=Gewerbepark+Hardtwald+20,+68723+Oftersheim" target="_blank" class="contact-link">📍 Gewerbepark Hardtwald 20, 68723 Oftersheim</a></p>
         </div>
     </section>
 
     <footer>
         © 2026 Al-Saleh IT Solutions. Alle Rechte vorbehalten.<br>
-        Inhaber: Mohammad Al-Saleh | Fachinformatiker Systemintegration
+        Inhaber: Mohammad Al-Saleh | info@it-alsaleh.de
     </footer>
 
-    <a href="https://wa.me/4915771292386?text=Hallo%20Herr%20Al-Saleh,%20ich%20habe%20Interesse%20an%20einer%20Zusammenarbeit." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/4915771292386" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 </body>
 </html>
-

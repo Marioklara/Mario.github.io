@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Saleh IT Solutions | Systemhaus Oftersheim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #004e92;
+            --secondary: #000428;
+            --accent: #0056b3; 
+            --light: #f8f9fa;
+            --text: #334155;
+            --whatsapp: #25d366;
+        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+        header { background: linear-gradient(to right, var(--secondary), var(--primary)); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: 800; }
+        nav ul { list-style: none; display: flex; gap: 20px; padding: 0; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #4facfe; }
+        .hero { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #000428; }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .hero-content { position: relative; z-index: 2; padding: 40px; background: rgba(255, 255, 255, 0.9); border-radius: 20px; max-width: 800px; margin: 20px; }
+        .stats { background: white; padding: 40px 0; display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; text-align: center; }
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .about-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-image img { width: 100%; max-width: 350px; border-radius: 20px; }
+        .opening-box { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-top: 20px; border-left: 5px solid var(--primary); }
+        .opening-list { list-style: none; padding: 0; }
+        .opening-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #ddd; }
+        footer { background: #1a1a1a; color: #aaa; text-align: center; padding: 40px 20px; margin-top: 50px; }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background: var(--whatsapp); color: white; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 9999; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🚀 Al-Saleh IT Solutions</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="leistungen.html">Leistungen</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <video class="hero-video" autoplay muted loop playsinline><source src="Server_Room_Video_Generation.mp4" type="video/mp4"></video>
+        <div class="hero-content">
+            <h1>Willkommen bei Al-Saleh IT Solutions</h1>
+            <p>Ihr junges Expertenteam für Digitalisierung und moderne IT-Infrastruktur.</p>
+            <a href="#contact" style="background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold;">Kontakt aufnehmen</a>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div><h3>12 👥</h3><p>Mitarbeiter</p></div>
+        <div><h3>2026 📅</h3><p>Gegründet</p></div>
+        <div><h3>100% ⭐</h3><p>Qualität</p></div>
+    </div>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-image"><img src="ich.jpg" alt="Mohammad Al-Saleh"></div>
+            <div class="about-text">
+                <h2>Wer wir sind 👨‍💻</h2>
+                <p><strong>Gegründet Anfang 2026</strong>, sind wir ein junges, dynamisches und schnell wachsendes Unternehmen. Unser Team besteht bereits aus 12 qualifizierten Experten.</p>
+                <p>Inhaber <strong>Mohammad Al-Saleh</strong> bringt umfassende Erfahrung aus Großprojekten in den Bereichen Digitalisierung und Rollout mit (u.a. Bechtle und Deutsche Rentenversicherung).</p>
+                
+                <div class="opening-box">
+                    <h4>🕒 Öffnungszeiten</h4>
+                    <ul class="opening-list">
+                        <li><span>Montag - Freitag</span> <span>08:00 - 17:00</span></li>
+                        <li style="color:red;"><span>Wochenende</span> <span>Geschlossen ❌</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center; background: var(--light);">
+        <h2>Kontakt 📞</h2>
+        <p>E-Mail: <a href="mailto:info@it-alsaleh.de" style="color: var(--primary); font-weight: bold;">info@it-alsaleh.de</a></p>
+        <p>Tel: 01577 129 23 86</p>
+        <p>📍 Gewerbepark Hardtwald 20, 68723 Oftersheim</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Al-Saleh IT Solutions | Mohammad Al-Saleh</p>
+        <a href="datenschutz.html" style="color: #aaa;">Impressum & Datenschutz</a>
+    </footer>
+
+    <a href="https://wa.me/4915771292386" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</body>
+</html>

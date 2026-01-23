@@ -250,7 +250,7 @@
         <nav>
             <ul>
                 <li><a href="#home">🏠 Start</a></li>
-                <li><a href="#services">🛠️ Leistungen</a></li>
+                <li><a href="leistungen.html">🛠️ Leistungen</a></li>
                 <li><a href="#about">👨‍💻 Über uns</a></li>
                 <li><a href="#termin">📅 Termin</a></li>
                 <li><a href="#contact">📞 Kontakt</a></li>
@@ -385,4 +385,5 @@
 
 </body>
 </html>
+
 

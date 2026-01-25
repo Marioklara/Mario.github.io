@@ -75,22 +75,20 @@
             z-index: 1;
         }
 
-        .hero-bg-image {
+        /* Schwarzer Filter über Video für bessere Lesbarkeit */
+        .hero::after {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80');
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
             max-width: 800px;
@@ -110,6 +108,7 @@
             font-weight: bold;
             transition: transform 0.3s;
             box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4);
+            margin-top: 20px;
         }
         .btn:hover { transform: translateY(-3px); }
 
@@ -152,7 +151,7 @@
             color: rgba(0, 0, 0, 0.05);
         }
 
-        /* --- Formular --- */
+        /* --- Formular mit Kalender --- */
         .contact-form-box {
             background: white;
             padding: 40px;
@@ -163,12 +162,22 @@
         }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        
+        /* Kalender und Uhr Design */
         .form-group input, .form-group select {
             width: 100%;
             padding: 12px;
             border: 2px solid #eee;
             border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
         }
+        /* Datum und Zeit nebeneinander auf großen Screens */
+        .date-time-group {
+            display: flex;
+            gap: 20px;
+        }
+        
         .submit-btn {
             width: 100%;
             background-color: var(--primary);
@@ -178,7 +187,10 @@
             border-radius: 10px;
             font-weight: bold;
             cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
+        .submit-btn:hover { background-color: #003366; }
 
         /* --- Über Uns --- */
         .about-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
@@ -193,11 +205,7 @@
             margin-top: 20px;
             border-left: 5px solid var(--primary);
         }
-        .opening-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+        .opening-list { list-style: none; padding: 0; margin: 0; }
         .opening-list li {
             padding: 5px 0;
             border-bottom: 1px solid #ddd;
@@ -207,20 +215,8 @@
         .opening-list li:last-child { border-bottom: none; }
         .closed { color: #e74c3c; font-weight: bold; }
 
-        /* --- Karriere --- */
-        .career-box {
-            background: linear-gradient(135deg, #004e92, #000428);
-            color: white;
-            padding: 50px;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        /* --- Kontakt & Footer --- */
-        .contact-info { text-align: center; font-size: 1.2rem; }
-        .contact-link { color: var(--primary); text-decoration: none; font-weight: bold; }
+        /* --- Footer --- */
         footer { background-color: #1a1a1a; color: #aaa; text-align: center; padding: 40px 20px; margin-top: 50px; }
-
         .footer-link { color: #aaa; text-decoration: none; border-bottom: 1px dotted #aaa; transition: color 0.3s; }
         .footer-link:hover { color: white; border-bottom: 1px solid white; }
 
@@ -239,10 +235,43 @@
             font-size: 32px;
             z-index: 9999;
             text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
+        /* --- 📱 HANDY OPTIMIERUNG (WICHTIG!) --- */
         @media (max-width: 768px) {
-            nav { display: none; }
+            /* Header umbauen: Logo oben, Menü darunter */
+            header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 15px;
+            }
+            
+            /* Menü sichtbar machen und schön anordnen */
+            nav {
+                display: block !important; /* Erzwingt Anzeige */
+                width: 100%;
+            }
+            nav ul {
+                display: flex;
+                flex-wrap: wrap; /* Erlaubt Umbruch bei zu vielen Links */
+                justify-content: center; /* Zentriert die Links */
+                gap: 15px;
+            }
+            nav a {
+                background: rgba(255,255,255,0.1);
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+            }
+
+            /* Schriftgrößen anpassen */
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .hero-content { padding: 25px; width: 90%; margin: 10px auto; }
+            
+            /* Formular Anpassung */
+            .date-time-group { flex-direction: column; gap: 0; }
         }
     </style>
 </head>
@@ -269,7 +298,7 @@
         <div class="hero-content">
             <h1><span class="jump-emoji">👋</span> Willkommen bei<br>Al-Saleh IT Solutions</h1>
             <p>Ihr starker Partner für IT-Netzwerke, Sicherheitstechnik und Firmenbetreuung in Oftersheim.</p>
-            <a href="#termin" class="btn"><i class="fas fa-calendar-check"></i> Termin vereinbaren</a>
+            <a href="#termin" class="btn"><i class="fas fa-calendar-check"></i> Termin buchen</a>
         </div>
     </div>
 
@@ -304,20 +333,35 @@
     </section>
 
     <section id="termin" style="background-color: var(--light);">
-        <h2 class="section-title">📅 Rückruf & Termin vereinbaren</h2>
+        <h2 class="section-title">📅 Termin vereinbaren</h2>
         <div class="contact-form-box">
-            <form action="mailto:info@it-alsaleh.de?subject=Anfrage über Webseite" method="post" enctype="text/plain">
+            <p style="text-align:center; margin-bottom:20px;">Wählen Sie Ihren Wunschtermin. Wir bestätigen diesen schnellstmöglich.</p>
+            
+            <form action="mailto:info@it-alsaleh.de?subject=Terminanfrage über Webseite" method="post" enctype="text/plain">
                 <div class="form-group">
                     <label>👤 Ihr Name / Firma:</label>
-                    <input type="text" name="Name" required>
+                    <input type="text" name="Name" required placeholder="Z.B. Max Mustermann">
                 </div>
                 <div class="form-group">
-                    <label>📱 Ihre Telefonnummer:</label>
-                    <input type="tel" name="Telefon" required>
+                    <label>📱 Ihre Telefonnummer (für Rückruf):</label>
+                    <input type="tel" name="Telefon" required placeholder="01577...">
                 </div>
+                
+                <div class="date-time-group">
+                    <div class="form-group" style="flex:1;">
+                        <label>📅 Wunsch-Datum:</label>
+                        <input type="date" name="Datum">
+                    </div>
+                    <div class="form-group" style="flex:1;">
+                        <label>⏰ Uhrzeit:</label>
+                        <input type="time" name="Uhrzeit">
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label>💡 Thema:</label>
                     <select name="Thema">
+                        <option>Beratungstermin vor Ort</option>
                         <option>IT-Infrastruktur</option>
                         <option>Wartungsvertrag</option>
                         <option>Sicherheitstechnik</option>
@@ -337,9 +381,18 @@
             </div>
             <div class="about-text">
                 <h3>Ihr starkes Team für IT & Netzwerke</h3>
-                <p><strong>Gegründet Anfang 2026</strong>, sind wir ein junges und schnell wachsendes Unternehmen. Unser Ziel ist es, moderne IT-Lösungen für Oftersheim und Umgebung zu bieten.</p>
+                <p><strong>Gegründet Anfang 2026</strong>, sind wir Ihr zuverlässiger Partner für IT-Lösungen. Unser Anspruch: Behörden-Standard für Ihren Betrieb.</p>
                 
-                <p>Unser Team von 12 Experten wird geführt von <strong>Mohammad Al-Saleh</strong>. Wir bringen spezialisierte Erfahrung aus Großprojekten mit – insbesondere in den Bereichen <strong>Digitalisierung und Rollout</strong> (z.B. bei Bechtle und der Deutschen Rentenversicherung).</p>
+                <p>Inhaber <strong>Mohammad Al-Saleh</strong> greift auf jahrelange Erfahrung in sensiblen Großprojekten zurück. Ein besonderer Meilenstein ist die Tätigkeit im Umfeld des <strong>Justizministeriums</strong>.</p>
+                
+                <div style="background: #eef7ff; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid var(--primary);">
+                    <strong>Unsere Kompetenzen aus diesem Projekt:</strong>
+                    <ul style="margin: 10px 0 0 20px; padding: 0;">
+                        <li>📦 Management von Hardware-Rollouts (PC & Laptop)</li>
+                        <li>🔒 Höchste Standards bei Datensicherheit & Datenschutz</li>
+                        <li>💻 Migration und Einrichtung von Windows-Systemen</li>
+                    </ul>
+                </div>
                 
                 <div class="opening-box">
                     <h4 style="margin-top:0;">🕒 Öffnungszeiten</h4>
@@ -349,14 +402,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="career">
-        <div class="career-box">
-            <h2>Karriere & Wachstum 📈</h2>
-            <p>Teil des 12-köpfigen Teams werden?</p>
-            <a href="mailto:info@it-alsaleh.de" class="btn" style="background:white; color:var(--primary)">📧 Jetzt bewerben</a>
         </div>
     </section>
 
